@@ -4,6 +4,7 @@ include_once 'dbconnection.php';
 $obj = new Connection();
 $connection = $obj->getConnection();
 $sql = "Select * from blogs;";
+$result = mysqli_query($connection, $sql);
 ?>
 
 <!DOCTYPE html>
