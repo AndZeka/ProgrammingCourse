@@ -1,5 +1,11 @@
 
-
+<?php 
+include_once 'dbconnection.php';
+$obj = new Connection();
+$connection = $obj->getConnection();
+$sql = "Select * from blogs;";
+$result = mysqli_query($connection, $sql);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,19 +53,26 @@
 
 
 <div class="wrapper extraLayout">
-    <div class="dynamicPageInfo block">
-        <h1><strong>Titulli</strong></h1>
-        <div class="row belief">
-            <div class=" illustration">
-                <img src="imgs/Spain-1000x400.jpg" alt="">
+   <?php   
+    while($row=mysqli_fetch_array($result))
+     {
+    
+    echo"<div class='dynamicPageInfo block'>
+
+        <h1><strong>".$row['Name']."</strong></h1>
+        <div class='row belief'>
+            <div class='illustration'>
+                <img src='".$row['Image']."' alt=''>
             </div>
-            <div class=" description"> 
-                <div><h2><strong>Education should be free and accessible</strong></h2></div>      
-                <div><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum sit similique vero officiis aspernatur error voluptatibus veritatis officia, magnam vel natus totam enim commodi. Modi dolorem necessitatibus repellendus corporis suscipit? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis repellendus, animi asperiores, esse officia architecto ut suscipit odit inventore magnam velit. Provident, mollitia hic! Aperiam quaerat id assumenda dolore deserunt?</p></div>
+            <div class=' description'> 
+                <div><h2><strong>".$row['Titulli2']."</strong></h2></div>      
+                <div><p>".$row['Description']."</p></div>
             </div>  
         </div>
         
-    </div>
+    </div>";
+    }
+    ?>
 </div>
 
 
