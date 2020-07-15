@@ -72,7 +72,10 @@ $result = mysqli_query($connection, $sql);
    <?php   
     while($row=mysqli_fetch_array($result))
      {
-    
+
+        $sql2 = "Select name from user where id = '".$row['User_id']."'";
+        $result1 = mysqli_query($connection, $sql2);
+        $result2 = mysqli_fetch_array($result1);
     echo"<div class='dynamicPageInfo block'>
 
         <h1><strong>".$row['Name']."</strong></h1>
@@ -83,6 +86,7 @@ $result = mysqli_query($connection, $sql);
             <div class=' description'> 
                 <div><h2><strong>".$row['Titulli2']."</strong></h2></div>      
                 <div><p>".$row['Description']."</p></div>
+                <h3> Author:".$result2[0]."</h3>
             </div>  
         </div>
         
@@ -90,6 +94,13 @@ $result = mysqli_query($connection, $sql);
     }
     ?>
 </div>
+
+<?php  
+
+
+
+
+?>
 
 
 
