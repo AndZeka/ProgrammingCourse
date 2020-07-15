@@ -1,0 +1,126 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #f2f2f2;
+}
+p.adminP{
+    margin-left: 16%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family:san-serif;
+    font-size: 2.5em;
+    font-weight: 500;
+}
+body{
+    position: relative;
+    font-size: 10px;
+    font-family: sans-serif;
+}
+.dashboard-menu{
+    float: left;
+    overflow: hidden;
+    /* margin-top: 10px; */
+    font-size: 10px;
+    background-color:  #3a464b;
+    max-width: 50%;
+    padding: 5px 20px;
+    height: auto;
+}
+.dashboard-menu ul{
+    list-style: none;
+    overflow: hidden;
+    /* width: 200px;
+    height: 500px; */
+    display: block;
+    padding-top: 20px;
+}
+
+.dashboard-menu ul li{
+    /* padding-top: 20px; */
+    margin-left: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.dashboard-menu ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.4em;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    margin-bottom: 10px;
+
+}
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    left: 5%;
+    height: 20%;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.header ul li {
+    float: left;
+    margin: 10px;
+    color: #F9F9F1;
+    border-radius: 10px;
+    align-self: center;
+    width: 90px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+}
+
+#drop-down {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    margin-left: 120px;
+}
+/* .dashboard-menu{
+    margin-right: 10em;
+} */
+#user_table {
+    width: 50%;
+}
+#contact_table {
+    width: 70%;
+}
+#blog_table {
+    width: 80%;
+}
+#user_table, #contact_table, #blog_table, th, td{
+padding: 20px 30px;
+border-bottom: 1px solid #ddd;
+border-collapse: collapse;
+text-align: center;
+
+}
+th{
+    background-color: #1abc9c;
+    }
+.center{
+        margin-left:auto; 
+        margin-right:auto;
+}
+
+input[type=text]{
+    width: 200px;
+}
+
+.submitbtn{
+    margin-top: 25px;
+}
+
