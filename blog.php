@@ -1,13 +1,22 @@
+
+<?php 
+include_once 'dbconnection.php';
+$obj = new Connection();
+$connection = $obj->getConnection();
+$sql = "Select * from blogs;";
+$result = mysqli_query($connection, $sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="css/contact.css">
+    <title>Blog</title>
+    <link rel="stylesheet" href="css/blog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 </head>
-<body>
+<body class="">
     <div id="header">
         <div class="header wrapper">
             <div class="logo">
@@ -39,39 +48,35 @@
             </div>
         </div>
     </div>
-    <div class="wrapper extraLayout">
-        <div class="dynamicPageInfo block">
-            <h1 class="title">Contact Us</h1>
-            <div class="content">
-                <div class="leftside">
-                    <h1>Get in Touch</h1>
-                    <p>Please fill out the quick form and we will be in touch with lightening speed.</p>
-                    <div class="contactForm">
-                        <form action="insert.php" method="POST" id="forma" name="form1">
-                            <input type="text" placeholder="Name" name="name" class="contact-form-field">
-                            <input type="email" placeholder="Your email address" name="email" class="contact-form-field">
-                            <textarea placeholder="Message" name="message" id="comments" class="contact-form-field" cols="30" rows="4"></textarea>
-                            <button type="submit" value="Submit Form" class="submit-btn button" onclick="allLetter(document.form1.name); ValidateEmail(document.form1.email)">Submit</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="rightside">
-                    <h1>Connect with us:</h1>
-                    <p>For support or any questions:<br>Email us at <a href="">support@course.com</a></p>
-                    <h2 class="address">Programming Course USA</h2>
-                    <p>9644 Inverness St.
-                        Ashburn, <br>VA 20147
-                    </p>
-                    <h2 class="address">Programming Course KOSOVO</h2>
-                    <p>
-                        134 Lagjia Kalabria
-                        10000,<br> Prishtine, Kosovo
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+</div>
+
+
+<div class="wrapper extraLayout">
+   <?php   
+    while($row=mysqli_fetch_array($result))
+     {
     
+    echo"<div class='dynamicPageInfo block'>
+
+        <h1><strong>".$row['Name']."</strong></h1>
+        <div class='row belief'>
+            <div class='illustration'>
+                <img src='".$row['Image']."' alt=''>
+            </div>
+            <div class=' description'> 
+                <div><h2><strong>".$row['Titulli2']."</strong></h2></div>      
+                <div><p>".$row['Description']."</p></div>
+            </div>  
+        </div>
+        
+    </div>";
+    }
+    ?>
+</div>
+
+
+
 <div id="footer" data-name="contacts">
     <div class="footerTitle">
         <p>Learn Playing. Play Learning</p>
@@ -130,9 +135,8 @@
         </div>
     </div>
     <div class="copyright">
-        © 2020 Programming Course, Inc. All rights reserved.<br><a href="https://github.com/AndZeka/ProjektiWebEng">Repository: And Zeka, Rina Kasabaqi, Kushtrim Canolli</a>
+        © 2020 Programming Course, Inc. All rights reserved.<br><a href=" https://github.com/AndZeka/ProjektiWebEng">Repository: And Zeka, Rina Kasabaqi, Kushtrim Canolli</a>
     </div>
 
-    <script src="js/main.js"></script>
 </body>
-</html>
+</html> 
