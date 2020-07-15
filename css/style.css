@@ -12,6 +12,35 @@ body{
     font-family: sans-serif;
 }
 
+#CartNav{
+    font-weight: bold;
+    color: #fff;
+}
+#cart_count {
+    text-align: center;
+    padding: 0 0.9rem 0rem 0.9rem;
+    border-radius: 3rem;
+}
+.light {
+    background-color: #f8f9fa!important;
+}
+.text {
+    color: #ffc107!important;
+}
+.courseItem button{
+    max-height: 49px;
+    min-width: 120px;
+    background-color: #1abc9c;
+    border-radius: 20px;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.4em;
+    cursor: pointer;
+    border: none;
+}
+
 #homeHeader{
     background-color: #3a464b;
     background-image: url(../imgs/Guy-at-computer-e1569232215640-1920x720.jpg);
@@ -394,10 +423,6 @@ img {
 .phoneImg img{
     height: 243px;
     width: 400px;
-}
-
-img {
-    border: none;
 }
 
 .mainInfo {

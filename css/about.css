@@ -282,6 +282,22 @@ h1 {
     text-align: center;
 }
 
+#CartNav{
+    font-weight: bold;
+    color: #fff;
+}
+#cart_count {
+    text-align: center;
+    padding: 0 0.9rem 0rem 0.9rem;
+    border-radius: 3rem;
+}
+.light {
+    background-color: #f8f9fa!important;
+}
+.text {
+    color: #ffc107!important;
+}
+
 #footer {
     width: 100%;
     background-color: #eaedf1;

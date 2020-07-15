@@ -1,27 +1,39 @@
+<?php
+    session_start();
 
-<?php 
-include_once 'dbconnection.php';
-require_once ('component.php');
-$obj = new Connection();
-$connection = $obj->getConnection();
-$sql = "Select * from blogs;";
-$result = mysqli_query($connection, $sql);
+    require_once ('component.php');
+    require_once ('dbconnection.php');
+
+
+    $database = new Connection();
+    $database->getConnection();
+
+    if(isset($_POST['remove'])){
+        if ($_GET['action'] == 'remove'){
+            foreach($_SESSION['cart'] as $key=>$value){
+                if($value['productid']==$_GET['ID']){
+                    unset($_SESSION['cart'][$key]);
+                }
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-    <link rel="stylesheet" href="css/blog.css">
+    <title>Cart</title>
+
+    <link rel="stylesheet" href="css/cart.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 </head>
-<body class="">
+<body>
     <div id="header">
         <div class="header wrapper">
             <div class="logo">
-                <a href="home.html">
+                <a href="home.php">
                     <img src="imgs/pgcourse.png" alt="">
                 </a>
             </div>
@@ -43,57 +55,81 @@ $result = mysqli_query($connection, $sql);
                         <a href="contact.php">Contact</a>
                     </li>
                     <li id="CartNav">
-                        <a href="cart.php"><i class="fas fa-shopping-cart"></i> Cart
+                        <i class="fas fa-shopping-cart"></i> Cart
                         <?php
-
                         if (isset($_SESSION['cart'])){
                             $count = count($_SESSION['cart']);
                             echo "<span id=\"cart_count\" class=\"text light\">$count</span>";
                         }else{
                             echo "<span id=\"cart_count\" class=\"text light\">0</span>";
                         }
-
                         ?>
-                        </a>
-                        
                     </li>
                     <li id="signin">
                         <a href="login.php">SIGN IN</a>
                     </li>
+                    
                 </ul>
             </div>
         </div>
     </div>
-</div>
-</div>
-
-
-<div class="wrapper extraLayout">
-   <?php   
-    while($row=mysqli_fetch_array($result))
-     {
-    
-    echo"<div class='dynamicPageInfo block'>
-
-        <h1><strong>".$row['Name']."</strong></h1>
-        <div class='row belief'>
-            <div class='illustration'>
-                <img src='".$row['Image']."' alt=''>
+    <div class="wrapper pageLayout hasSidebar Dynamic">
+        <div class="content">
+            <div class="dynamicPageInfo block">
+                <?php
+                    $total=0;
+                    if(isset($_SESSION['cart'])){
+                        $course_id=array_column($_SESSION['cart'],'productid');
+                        $result=$database->getData();
+                        while($row=mysqli_fetch_assoc($result)){
+                            foreach ($course_id as $id){
+                                if ($row['ID'] == $id){
+                                    cartElement($row['course_img'], $row['course_name'], $row['course_description'], $row['course_price'],$row['ID']);
+                                    $total=$total+(int)$row['course_price'];
+                                }
+                            }                        
+                        }
+                    }else{
+                        echo "<h5> Cart is empty </h5>";
+                    }
+                     
+                ?>
             </div>
-            <div class=' description'> 
-                <div><h2><strong>".$row['Titulli2']."</strong></h2></div>      
-                <div><p>".$row['Description']."</p></div>
-            </div>  
         </div>
-        
-    </div>";
-    }
-    ?>
-</div>
+        <div class="sidebar ">
+            <div class="courseLoactions block">
+                <div class="takeCourse">
+                    <h6>Price Details</h6>
+                    <hr>
+                    <div class="price-details">
+                        <div>
+                            <div class="divflex">
+                                <?php
+                                    if(isset($_SESSION['cart'])){
+                                        $count=count($_SESSION['cart']);
+                                        echo "<h2>Price ($count items)</h2>";
+                                    }else{
+                                        echo "<h2>Price (0 items)</h2>";
+                                    }
+                                ?>
+                                <h2><?php echo $total."$"?></h2>
+                            </div>  
+                            <hr>                          
+                            <div class="divflex">
+                                <h2>Amount Payable</h2>
+                                <h2><?php echo $total."$"?></h2>
+                            </div>
+                            <hr>
+                            <div class="checkBttn"><button>Checkout</button></div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-
-<div id="footer" data-name="contacts">
+    <div id="footer" data-name="contacts">
     <div class="footerTitle">
         <p>Learn Playing. Play Learning</p>
     </div>
@@ -153,6 +189,5 @@ $result = mysqli_query($connection, $sql);
     <div class="copyright">
         © 2020 Programming Course, Inc. All rights reserved.<br><a href=" https://github.com/AndZeka/ProjektiWebEng">Repository: And Zeka, Rina Kasabaqi, Kushtrim Canolli</a>
     </div>
-
 </body>
-</html> 
+</html>

@@ -13,7 +13,7 @@ $sql1 = "INSERT INTO blogs(Name, Titulli2, Description, Image, User_id) VALUES('
 if(!mysqli_query($connection, $sql1)){
     echo'not insered';
 }
-header("Location:http://localhost:8012/Projekti/ProjektiWebEng/admin_blogs.php");
+header("Location:http://localhost:8012/ProjektiTest/ProjektiWebEng/admin_blogs.php");
 
 
 ?>

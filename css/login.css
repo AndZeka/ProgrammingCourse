@@ -310,15 +310,27 @@ button, input, textarea {
     font-family: sans-serif;
 }
 
+#CartNav{
+    font-weight: bold;
+    color: #fff;
+}
+#cart_count {
+    text-align: center;
+    padding: 0 0.9rem 0rem 0.9rem;
+    border-radius: 3rem;
+}
+.light {
+    background-color: #f8f9fa!important;
+}
+.text {
+    color: #ffc107!important;
+}
+
 .footerMenu {
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
     width: 115px;
-}
-
-.footerMenu.Home #footerHome{
-    color: #383737;
 }
 
 .footerMenu ul {

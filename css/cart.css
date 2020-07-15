@@ -74,10 +74,6 @@ a {
     border-radius: 5px;
 }
 
-#CoursesNav{
-    background-color: #1abc9c;
-    border-radius: 5px;
-}
 
 .wrapper:after {
     content: "";
@@ -95,19 +91,18 @@ a {
     white-space: nowrap;
 }
 
-.coursesContent {
+.pageLayout {
+    min-height: 350px;
+}
+
+.wrapper {
+    margin: 25px auto;
+    width: 1000px;
     position: relative;
 }
 
-.block.noPadding {
-    padding: 0;
-}
-
-.courseItem {
-    float: left;
-    margin: 0 1.5% 25px;
-    overflow: hidden;
-    width: 47%;
+.pageLayout.hasSidebar>.content {
+    margin-right: 320px;
 }
 
 .block {
@@ -117,17 +112,64 @@ a {
     box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
 }
 
+h1 {
+    font-size: 2.4em;
+    color: #000;
+}
+
+.dynamicPageInfo p {
+    color: #b4bbc2;
+    font-size: 1.4em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    color: #3a464b;
+}
+
+.pageLayout .sidebar {
+    width: 300px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.takeCourse {
+    overflow: hidden;
+}
+
+.takeCourse p {
+    font-weight: 500;
+    font-size: 1.75em;
+    color: #393635;
+    margin: 0;
+    text-align: center;
+}
+
+.takeCourse a {
+    display: block;
+    margin-top: 15px;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.takeCourse a:hover {
+    opacity: .8;
+}
+
 .courseItem a {
     overflow: hidden;
     display: block;
     text-decoration: none;
-    padding: 20px 20px 0;
+}
+
+a {
+    outline: none;
 }
 
 .courseIcon {
     float: left;
     overflow: hidden;
-    width: 89px;
+    width: 170px;
     border-radius: 45px;
     display: block;
     margin-right: 35px;
@@ -161,17 +203,34 @@ a {
     padding-right: 191px;
 }
 
+.courseStores button {
+    max-height: 49px;
+    min-width: 120px;
+    /* margin-left: 145px; */
+    /* background-color: #1abc9c; */
+    border: medium none;
+    border-radius: 20px;
+    color: #fff;
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.4em;
+    cursor: pointer;
+    border: none;
+}
 .price{
+    text-align: left;
+    padding-left: 0;
     font-size: 25px;
     color: red;
-    text-align: center;
-    padding-top: 3px;
-    padding-left: 15px;
+    font-weight: normal;
 }
-
 #CartNav{
     font-weight: bold;
+    font-size: 1.4em;
     color: #fff;
+    padding: 8.5px 10px;
 }
 #cart_count{
     text-align: center;
@@ -184,74 +243,166 @@ a {
 .light{
     background-color: #f8f9fa!important;
 }
-.courseStores button{
-    margin-left:145px;
+.courseItem a {
+overflow: hidden;
+display: block;
+text-decoration: none;
 }
-.navigation-menu ul li:nth-child(7){
-    padding:0;
-    /* padding: 0px 2px 0px 0px; */
-}  
+
+a {
+outline: none;
+}
+
+.courseIcon {
+float: left;
+overflow: hidden;
+width: 170px;
+border-radius: 45px;
+display: block;
+margin-right: 35px;
+}
+
+.courseDescription {
+overflow: hidden;
+}
+
+.courseDescription div, .courseDescription h1 {
+font-weight: 500;
+font-size: 2em;
+color: #000;
+}
+
+.courseDescription p {
+font-size: 1.35em;
+line-height: 1.7;
+margin-top: 10px;
+margin-bottom: 10px;
+color: #3a464b;
+}
 
 
+.courseStores button  {
 
-.courseStores button{
-    max-height: 49px;
-    min-width: 120px;
-    /* margin-left: 145px; */
-    background-color: #1abc9c;
-    border: medium none;
-    border-radius: 20px;
+max-height: 49px;
+min-width: 120px;
+border: medium none;
+border-radius: 20px;
+color: #fff;
+display: inline-block;
+padding: 10px;
+text-decoration: none;
+text-align: center;
+font-size: 1.4em;
+cursor: pointer;
+border: none;
+}
+
+.saveBttn{
+margin-left:0;
+background-color: #1abc9c;
+}
+
+.removeBttn{
+/* margin-left: 12px; */
+background-color: #ea1a2e;
+}
+
+.dynamicPageInfo form{
+margin-bottom: 20px;
+}
+
+.takeCourse h6{
+font-size: 1rem;
+margin-bottom: .5rem;
+}
+
+hr{
+margin-top: 1rem;
+margin-bottom: 1rem;
+border: 0;
+border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.takeCourse h2{
+padding: 4.4% 2%;
+}
+
+.divflex{
+display:flex;
+justify-content:space-between;
+}
+#CartNav{
+background-color: #1abc9c;
+border-radius: 5px;
+}
+.block h5{
+font-size: 1rem;
+color: red;
+}
+.checkBttn{
+text-align: center;
+}
+
+
+.checkBttn button{
     color: #fff;
-    display: inline-block;
-    padding: 10px;
-    text-decoration: none;
-    text-align: center;
-    font-size: 1.4em;
-    cursor: pointer;
     border: none;
+    text-decoration: none;
+    width: 100px;
+    height: 36px;
+    border-radius: 6px;
+    background-color: #1abc9c;
+    cursor: pointer;
 }
 
-.courseStores button:hover {
-    background-color: #17a68a;
+.price {
+    font-size: 25px;
+    color: red;
+    /* text-align: center; */
+    padding-top: 3px;
+    /* padding-left: 15px; */
 }
-
 
 .courseItem a {
     overflow: hidden;
     display: block;
     text-decoration: none;
+    padding: 20px 20px 0;
 }
 
-.courseCounts {
-    border-top: 1px solid #f0f0f0;
-    overflow: hidden;
-    padding: 0 20px 20px;
+.courseGooglePlay, .courseAppStore {
+    background: url(../Images/badges.png) no-repeat;
+    width: 250px;
+    height: 90px;
+    background-position: 0 -5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-
-
-.courseCounts ul {
-    list-style: none;
-    overflow: hidden;
-    margin-top: 15px;
+.courseGooglePlay img{
+    height: 90px;
+    width: 250px;
 }
 
-.courseCounts ul li {
-    float: left;
-    overflow: hidden;
-    margin-left: 60px;
+.courseAppStore img{
+    height: 90px;
+    width: 250px;
 }
 
-.courseCounts ul li span {
-    font-size: 1.4em;
-    color: #9ea7b3;
-}   
+.dynamicPageInfo h1{
+    color: #1abc9c;
+}
 
-.courseCounts ul li p {
-    margin: 0;
-    font-weight: bold;
-    font-size: 1.85em;
-    color: #1fbba6;
+.courseLoactions{
+    height: 225px;
+}
+
+.courseGooglePlay{
+    padding-top: 5px;
+}
+
+.courseAppStore{
+    padding-top: 35px;
 }
 
 
@@ -382,9 +533,6 @@ button, input, textarea {
     width: 115px;
 }
 
-.footerMenu.Home #footerCourses{
-    color: #383737;
-}
 
 .footerMenu ul {
     list-style: none;
@@ -411,4 +559,3 @@ button, input, textarea {
     font-size: 12px;
     padding: 20px 0;
 }
-

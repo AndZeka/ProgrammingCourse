@@ -12,6 +12,26 @@ class Connection
         return $conn;
     }
     
+    public function getData(){
+        
+        $sql = "SELECT * FROM courses";
+
+        $result = mysqli_query($this->getConnection(), $sql);
+
+        if(mysqli_num_rows($result) > 0){
+            return $result;
+        }
+    }
+
+    public function getConditionData(){
+        $sql = "SELECT * FROM courses LIMIT 3";
+
+        $result = mysqli_query($this->getConnection(), $sql);
+
+        if(mysqli_num_rows($result) > 0){
+            return $result;
+        }
+    }
     
 }
 ?>
