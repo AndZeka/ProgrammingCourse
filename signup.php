@@ -1,80 +1,97 @@
 <?php
-    session_start();
+session_start();
+$serverName = "localhost";
+$user = "root";
+$password = "";
+$databaseName = "phpmyadmin";
 
-    require_once ('component.php');
-    require_once ('dbconnection.php');
+try {
+    $conn = new PDO(
+        "mysql:host=" . $serverName . ";dbname=" . $databaseName,
+        $user,
+        $password
+    );
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->exec("set names utf8");
+} catch (PDOException $e) {
+    die($e->getMessage());
+}
 
+if (isset($_POST['button'])) {
 
-    $database = new Connection();
-    $database->getConnection();
+    $name = ($_POST['name']);
+    $email = ($_POST['email']);
+    $password = ($_POST['password']);
+    $password1 = ($_POST['password1']);
+
+    if ($password == $password1) {
+        $password = ($password);
+
+        $query = $conn->prepare("INSERT INTO user(Name, Email,Password) VALUES(:name,:email,:password)");
+        $query->bindparam(":name", $_POST['name']);
+        $query->bindparam(":email", $_POST['email']);
+        $query->bindparam(":password", $password);
+
+        $query->execute();
+
+        $_SESSION['message'] = "You are logged in";
+        $_SESSION['name'] = $name;
+    } else {
+        $_SESSION['message'] = "The two passwords do not match";
+    }
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Login</title>
     <link rel="stylesheet" href="css/signup.css ">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-
 </head>
+
 <body>
     <div id="header">
         <div class="header wrapper">
             <div class="logo">
-                <a href="home.php">
+                <a href="home.html">
                     <img src="imgs/pgcourse.png" alt="">
                 </a>
             </div>
             <div class="navigation-menu">
                 <ul class="Dynamic Contact">
                     <li id="HomeNav">
-                        <a href="home.php">Home</a>
+                        <a href="home.html">Home</a>
                     </li>
                     <li id="CoursesNav">
-                        <a href="courses.php">Courses</a>
-                    </li>
-                    <li id="BlogNav">
-                        <a href="blog.php">Blog</a>
+                        <a href="courses.html">Courses</a>
                     </li>
                     <li id="AboutNav">
-                        <a href="about.php">About Us</a>
+                        <a href="about.html">About Us</a>
                     </li>
                     <li id="ContactNav">
-                        <a href="contact.php">Contact</a>
-                    </li>
-                    <li id="CartNav">
-                        <a href="cart.php"><i class="fas fa-shopping-cart"></i> Cart
-                        <?php
-
-                        if (isset($_SESSION['cart'])){
-                            $count = count($_SESSION['cart']);
-                            echo "<span id=\"cart_count\" class=\"text light\">$count</span>";
-                        }else{
-                            echo "<span id=\"cart_count\" class=\"text light\">0</span>";
-                        }
-                        ?>
-                        </a>                        
+                        <a href="contact.html">Contact</a>
                     </li>
                     <li id="signin">
-                        <a href="login.php">SIGN IN</a>
+                        <a href="login.html">SIGN IN</a>
                     </li>
                 </ul>
             </div>
         </div>
-    </div> 
+    </div>
 
     <div class="wrapper extraLayout">
         <div class="dynamicPageInfo block">
             <div class="container">
                 <h1>Sign Up:</h1>
                 <div class="forma">
-                    <form action="" method="post" name="register">
-                        <div class="first" >
+                    <form action="" method="POST">
+                        <div class="first">
                             <label for="name">Enter your name:</label><br>
-                            <input type="text" id="name" name="name" placeholder="Name"class="contact-form-field">
+                            <input type="text" id="name" name="name" placeholder="Name" class="contact-form-field">
                         </div>
                         <div class="second">
                             <label for="email">Enter your e-mail:</label><br>
@@ -88,7 +105,7 @@
                             <label for="password">Confirm your password:</label><br>
                             <input type="password" id="confirmpassword" name="password1" placeholder="Password" class="contact-form-field">
                         </div>
-                        <input id="button" type="submit" value="Sign Up" name="register" onclick="allLetter(document.form1.name); ValidateEmail(document.form1.email); CheckPassword(document.form1.password); Validate()">
+                        <input id="button" name="button" type="submit" value="Sign Up" onclick="allLetter(document.form1.name); ValidateEmail(document.form1.email); CheckPassword(document.form1.password); Validate()">
                     </form>
                 </div>
             </div>
@@ -120,27 +137,27 @@
                 <div>
                     <p>PrgorammingCourse Inc.</p>
                     <address>
-    <br />Lagjia Kalabria
-    <br />10000, Prishtine, Kosovo</address>
+                        <br />Lagjia Kalabria
+                        <br />10000, Prishtine, Kosovo</address>
                 </div>
                 <button>Email Us</button>
             </div>
             <div class="footerMenu Home">
                 <ul>
                     <li>
-                        <a href="home.php" id="footerHome">Home</a>
+                        <a href="home.html" id="footerHome">Home</a>
                     </li>
                     <li>
-                        <a href="courses.php" id="footerCourses">Courses</a>
+                        <a href="#">Features</a>
                     </li>
                     <li>
-                        <a href="blog.php" id=footerBlog>Blog</a>
+                        <a href="courses.html" id="footerCourses">Courses</a>
                     </li>
                     <li>
-                        <a href="about.php" id="footerAbout">About Us</a>
+                        <a href="about.html" id="footerAbout">About Us</a>
                     </li>
                     <li>
-                        <a href="contact.php" id="footerContacts">Contact</a>
+                        <a href="contact.html" id="footerContacts">Contact</a>
                     </li>
                     <li>
                         <a href="#" id="footerPrivacy-Policy">Terms of Use</a>
@@ -157,4 +174,5 @@
 
         <script src="js/main.js"></script>
 </body>
+
 </html>
