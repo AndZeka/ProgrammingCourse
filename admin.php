@@ -12,6 +12,5 @@ $change = mysqli_query($conn, $sql1);
 if(!mysqli_query($conn, $sql1)){
     echo'not insered';
 }
-// header("Location:http://localhost:8012/Projekti/ProjektiWebEng/admin_users.php");
 
 ?>

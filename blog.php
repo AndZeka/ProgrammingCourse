@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    require_once ('component.php');
+    require_once ('dbconnection.php');
+
+
+    $database = new Connection();
+    $database->getConnection();
+?>
 
 <?php 
 include_once 'dbconnection.php';

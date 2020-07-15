@@ -31,19 +31,19 @@
             <div class="navigation-menu">
                 <ul class="Dynamic Contact">
                     <li id="HomeNav">
-                        <a href="home.html">Home</a>
+                        <a href="home.php">Home</a>
                     </li>
                     <li id="CoursesNav">
-                        <a href="courses.html">Courses</a>
+                        <a href="courses.php">Courses</a>
                     </li>
                     <li id="BlogNav">
                         <a href="blog.php">Blog</a>
                     </li>
                     <li id="AboutNav">
-                        <a href="about.html">About Us</a>
+                        <a href="about.php">About Us</a>
                     </li>
                     <li id="ContactNav">
-                        <a href="contact.html">Contact</a>
+                        <a href="contact.php">Contact</a>
                     </li>
                     <li id="CartNav">
                         <a href="cart.php"><i class="fas fa-shopping-cart"></i> Cart
