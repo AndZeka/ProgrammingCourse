@@ -24,7 +24,7 @@
                 <img src="./imgs/User_Circle.png" href="navigation.php" style="width:32px; padding:0 50px; margin: 20px 0;"
                     alt="user-icon"> </li>
                     <li>
-                        <a href="home.html"> <img src="https://image.flaticon.com/icons/svg/2150/2150376.svg"  style="width:32px; padding-right:30px; margin:20px 0;"alt=""></a>
+                        <a href="home.php"> <img src="https://image.flaticon.com/icons/svg/2150/2150376.svg"  style="width:32px; padding-right:30px; margin:20px 0;"alt=""></a>
                     </li>
         </ul>
     </div> <br>
