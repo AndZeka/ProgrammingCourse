@@ -10,5 +10,5 @@ $sql1 = "INSERT INTO contactform(Name, Email, Message) VALUES('$Name', '$Email',
 if(!mysqli_query($conn, $sql1)){
     echo'not insered';
 }
-header("Location:http://localhost:8012/ProjektiWebEng/contact.php");
+header("Location:http://localhost:8012/Projektii/ProjektiWebEng/contact.php");
 ?>

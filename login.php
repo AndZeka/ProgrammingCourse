@@ -1,9 +1,6 @@
 
 <?php
-    if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
+    session_start();
 
     require_once ('component.php');
     require_once ('dbconnection.php');
@@ -12,19 +9,53 @@
     $database = new Connection();
     $database->getConnection();
 ?>
-
 <?php
-    require_once ('component.php');
-    if(isset($_POST['button'])){
-        if(login()){    
-            // echo "<script>alert('Login Successful!')</script>";
-            header("Location:http://localhost:8012/ProjektiWebEng/home.php");
-        }else{
-            echo "<script>alert('Invalid Email address or Password!')</script>";
-        }
-    }
-?>
 
+    $serverName = "localhost";
+    $user = "root";
+    $password = "";
+    $databaseName = "db";
+
+        try {
+            $conn = new PDO("mysql:host=".$serverName.";dbname=".$databaseName,
+                $user, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn->exec("set names utf8");
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    if(isset($_POST['button'])){
+        $uname=$_POST['email'];
+        $password=($_POST['password']);
+
+        // function ValidateEmail(inputText){
+            $mailformat = "/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/";
+                if($uname.match($mailformat)){
+                    // document.form1.email.focus();
+                    // return true;
+                }else{
+                    echo "<script>alert('You have entered an invalid email address!')</script>";
+                    // document.form1.email.focus();
+                    // return false;
+                }
+        
+        
+        $query = $conn->prepare("Select * from user where Email=:email and Password=:password");
+        $query->bindparam(":email", $uname);
+        $query->bindparam(":password",$password);
+
+        $query->execute();
+        
+        $result = $query->fetchAll();
+        // print_r($result);
+        // if(count($result) > 0){
+            
+        // }else{
+        //     // echo "You have entered incorrect email or password logged in";
+        //     // exit();
+        // }
+    }
+?> 
 
 <!DOCTYPE php>
 <php lang="en">
@@ -72,9 +103,9 @@
                     ?>
                     </a>
                     
-                    </li>
-                    <li id="signin">
-                            <a href="login.php">SIGN IN</a>
+                </li>
+                <li id="signin">
+                        <a href="login.php">SIGN IN</a>
                     </li>
                 </ul>
             </div>
@@ -86,7 +117,7 @@
             <div class="container">
                 <h1>Login:</h1>
                 <div class="forma">
-                    <form action="login.php"  method="POST" name="form1">
+                    <form action="home1.php"  method="POST" name="form1">
                         <div class="second">
                             <label for="email">Enter your e-mail:</label><br>
                             <input type="email" id="email" name="email" placeholder="Email" class="contact-form-field">
