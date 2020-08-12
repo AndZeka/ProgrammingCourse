@@ -24,7 +24,7 @@
     <div id="header">
         <div class="header wrapper">
             <div class="logo">
-                <a href="home.html">
+                <a href="home.php">
                     <img src="imgs/pgcourse.png" alt="">
                 </a>
             </div>
@@ -61,7 +61,7 @@
                         
                     </li>
                     <li id="signin">
-                        <a href="login.html">SIGN IN</a>
+                        <a href="login.php">SIGN IN</a>
                     </li>
                 </ul>
             </div>
@@ -134,19 +134,19 @@
         <div class="footerMenu Home">
             <ul>
                 <li>
-                    <a href="home.html" id="footerHome">Home</a>
+                    <a href="home.php" id="footerHome">Home</a>
                 </li>
                 <li>
-                    <a href="courses.html" id="footerCourses">Courses</a>
+                    <a href="courses.php" id="footerCourses">Courses</a>
                 </li>
                 <li>
-                    <a href="blog.html" id=footerBlog>Blog</a>
+                    <a href="blog.php" id=footerBlog>Blog</a>
                 </li>
                 <li>
-                    <a href="about.html" id="footerAbout">About Us</a>
+                    <a href="about.php" id="footerAbout">About Us</a>
                 </li>
                 <li>
-                    <a href="contact.html" id="footerContacts">Contact</a>
+                    <a href="contact.php" id="footerContacts">Contact</a>
                 </li>
                 <li>
                     <a href="#" id="footerPrivacy-Policy">Terms of Use</a>

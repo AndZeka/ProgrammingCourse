@@ -71,6 +71,3 @@ let x=0;
     }
 
 
-    function More(x){
-        window.location.href='shop.html'+'?'+x;
-    }
