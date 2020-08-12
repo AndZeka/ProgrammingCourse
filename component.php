@@ -1,10 +1,5 @@
 <?php
 
-if(!isset($_SESSION)) {
-    session_start(); 
-} 
-
-
 function component($productname, $productdescription, $productimg,$productprice,$productlearners,$productlessons,$productquizzes,$productid){
     $element = "
     <div class=\"courseItem block noPadding\">
@@ -89,25 +84,3 @@ function mainElements($productname,$productimg,$productdescription,$productid){
     ";
     echo $element;
 }
-
-
-$_SESSION["bool"]=false;
-function login(){  
-    if(isset($_POST['button'])){
-        $uname=$_POST['email'];
-        $password=$_POST['password'];
-
-        $sql="Select * from user where Email= '$uname' AND Password='$password' ";
-
-        require_once ('dbconnection.php');
-        $database = new Connection();
-
-        $result=mysqli_query($database->getConnection(),$sql);
-        $rows=mysqli_fetch_array($result);
-        if($rows){
-            $_SESSION["bool"]=TRUE;
-        }
-        return $_SESSION["bool"];
-    }
-}
-
