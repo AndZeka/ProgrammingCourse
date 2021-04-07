@@ -16,9 +16,18 @@
 <?php
     require_once ('component.php');
     if(isset($_POST['button'])){
-        if(login()){    
-            // echo "<script>alert('Login Successful!')</script>";
-            header("Location:http://localhost:8012/ProjektiWebEng/home.php");
+        if(login()){
+            $email = $_POST['email'];    
+            $sql="select * from User WHERE email like '$email'";
+            $connection = $database->getConnection();
+            $result = mysqli_query($connection, $sql);
+            $row = mysqli_fetch_array($result);
+
+            $_SESSION['isAdmin'] = $row['isAdmin'];
+
+            $_SESSION['user'] = $email;
+
+            header("Location:http://localhost/ProjektiWebEng/home.php");
         }else{
             echo "<script>alert('Invalid Email address or Password!')</script>";
         }

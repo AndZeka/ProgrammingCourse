@@ -1,5 +1,8 @@
 <?php
-    session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
 
     require_once ('component.php');
     require_once ('dbconnection.php');
@@ -65,9 +68,22 @@
                         }
                         ?>
                     </li>
-                    <li id="signin">
-                        <a href="login.php">SIGN IN</a>
-                    </li>
+                    <?php
+                        if(isset($_SESSION['user'])){
+                            $user = $_SESSION['user'];
+                            echo "
+                            <li id=\"signin\">
+                                <a href=\"nav_2.php\">$user</a>
+                            </li>
+                            ";
+                        }else{
+                            echo "
+                            <li id=\"signin\">
+                                <a href=\"login.php\">SIGN IN</a>
+                            </li>
+                            ";
+                        }
+                    ?>
                     
                 </ul>
             </div>
@@ -79,17 +95,21 @@
                 <?php
                     $total=0;
                     if(isset($_SESSION['cart'])){
-                        $course_id=array_column($_SESSION['cart'],'productid');
-                        $result=$database->getData();
-                        while($row=mysqli_fetch_assoc($result)){
-                            foreach ($course_id as $id){
-                                if ($row['ID'] == $id){
-                                    cartElement($row['course_img'], $row['course_name'], $row['course_description'], $row['course_price'],$row['ID']);
-                                    $total=$total+(int)$row['course_price'];
-                                }
-                            }                        
+                        if(count($_SESSION['cart']) != 0){
+                            $course_id=array_column($_SESSION['cart'],'productid');
+                            $result=$database->getData();
+                            while($row=mysqli_fetch_assoc($result)){
+                                foreach ($course_id as $id){
+                                    if ($row['ID'] == $id){
+                                        cartElement($row['course_img'], $row['course_name'], $row['course_description'], $row['course_price'],$row['ID']);
+                                        $total=$total+(int)$row['course_price'];
+                                    }
+                                }                        
+                            }
+                        }else{
+                            echo "<h5> Cart is empty </h5>";
                         }
-                    }else{
+                    }else {
                         echo "<h5> Cart is empty </h5>";
                     }
                      

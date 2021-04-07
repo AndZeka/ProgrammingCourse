@@ -1,3 +1,22 @@
+<?php
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
+    if(!isset($_SESSION['user'])){
+        echo "<script>alert('You dont have permission to enter..!')</script>";
+        echo "<script>window.location = 'home.php'</script>";
+    }
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
+    if(isset($_POST['button'])){
+        session_unset();
+        session_destroy();
+        header("Location:http://localhost/ProjektiWebEng/home.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,47 +40,58 @@
        <a href="nav_2.php"> <img src="./imgs/logo.png" alt="logo"></a>
         <ul>
             <li>
-                <img src="./imgs/User_Circle.png" href="navigation.php" style="width:32px; padding:0 50px; margin: 20px 0;"
-                    alt="user-icon"> </li>
-                    <li>
-                        <a href="home.php"> <img src="https://image.flaticon.com/icons/svg/2150/2150376.svg"  style="width:32px; padding-right:30px; margin:20px 0;"alt=""></a>
-                    </li>
+                <a href="home.php">
+                    <img src="./imgs/home.png" style="width:40px; padding:0 50px; margin: 16px 0;" alt="user-icon"> 
+                </a>
+            </li>
+            <li>
+                <form action="navigation.php" method="POST">
+                    <button id="button" name="button" type="submit" style="border:none; background:none"><a><img src="https://image.flaticon.com/icons/svg/2150/2150376.svg"  style="width:32px; padding-right:30px; margin:20px 0;"alt=""></a></button>
+                </form>
+            </li>
         </ul>
     </div> <br>
-    <div>
-        <div class="dashboard-menu" style="height:auto;">
-            <ul>
-                <li>
-                    <a href="admin_users.php" class="users">Users</a>
-                </li>
-                <br> <br>
-                <li>
-                    <a href="">Blogs</a>
-                    <button id="drop-down" onclick="show_blogs()"><img
-                            src="https://mbotaswbcw-flywheel.netdna-ssl.com/wp-content/uploads/sites/6/2019/06/white-down-arrow-png-2.png"
-                            style="width:10px;" alt=""></button>
-                    <div id="drop-down-blogs" style="display: none;">
-                        <ul style="height:50px;">
-                            <li><a href="admin_blogs.php">See Blogs</a></li>
-                            <li><a href="admin_add_blog.php">Add Blogs</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <br> <br>
-                <li>
-                    <a href="">Contact Form</a>
-                    <button id="drop-down" style="margin-left:67px;" onclick="show_contact()"><img
-                            src="https://mbotaswbcw-flywheel.netdna-ssl.com/wp-content/uploads/sites/6/2019/06/white-down-arrow-png-2.png"
-                            style="width:10px;" alt=""></button>
-                    <div id="drop-down-contact" style="display: none;">
-                        <ul>
-                            <li><a href="admin_contactform.php">See Contact Forms</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <?php
+        if(isset($_SESSION['isAdmin'])){
+            $admin = $_SESSION['isAdmin'];
+             if($admin == 1){
+                echo " <div>
+                <div class=\"dashboard-menu\" style=\"height:auto;\">
+                    <ul>
+                        <li>
+                            <a href=\"admin_users.php\" class=\"users\">Users</a>
+                        </li>
+                        <br> <br>
+                        <li>
+                            <a >Blogs</a>
+                            <button id=\"drop-down\" onclick=\"show_blogs()\"><img
+                                    src=\"https://mbotaswbcw-flywheel.netdna-ssl.com/wp-content/uploads/sites/6/2019/06/white-down-arrow-png-2.png\"
+                                    style=\"width:10px;\"></button>
+                            <div id=\"drop-down-blogs\" style=\"display: none;\">
+                                <ul style=\"height:50px;\">
+                                    <li><a href=\"admin_blogs.php\">See Blogs</a></li>
+                                    <li><a href=\"admin_add_blog.php\">Add Blogs</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <br> <br>
+                        <li>
+                            <a>Contact Form</a>
+                            <button id=\"drop-down\" style=\"margin-left:67px;\" onclick=\"show_contact()\"><img
+                                    src=\"https://mbotaswbcw-flywheel.netdna-ssl.com/wp-content/uploads/sites/6/2019/06/white-down-arrow-png-2.png\"
+                                    style=\"width:10px;\"></button>
+                            <div id=\"drop-down-contact\" style=\"display: none;\">
+                                <ul>
+                                    <li><a href=\"admin_contactform.php\">See Contact Forms</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>";
+            }
+        }
+    ?>
     <script>
         let count = 0;
         function show_blogs() {

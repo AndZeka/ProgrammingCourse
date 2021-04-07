@@ -1,5 +1,8 @@
 <?php
-    session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
 
     require_once ('component.php');
     require_once ('dbconnection.php');
@@ -60,9 +63,22 @@
                         </a>
                         
                     </li>
-                    <li id="signin">
-                        <a href="login.php">SIGN IN</a>
-                    </li>
+                    <?php
+                        if(isset($_SESSION['user'])){
+                            $user = $_SESSION['user'];
+                            echo "
+                            <li id=\"signin\">
+                                <a href=\"nav_2.php\">$user</a>
+                            </li>
+                            ";
+                        }else{
+                            echo "
+                            <li id=\"signin\">
+                                <a href=\"login.php\">SIGN IN</a>
+                            </li>
+                            ";
+                        }
+                    ?>
                 </ul>
             </div>
         </div>

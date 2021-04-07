@@ -1,6 +1,8 @@
-
 <?php
-    session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
 
     require_once ('component.php');
     require_once ('dbconnection.php');
@@ -46,6 +48,7 @@ if (isset($_POST['button'])) {
 
         $_SESSION['message'] = "You are logged in";
         $_SESSION['name'] = $name;
+        header("Location:http://localhost/ProjektiWebEng/login.php");
     } else {
         $_SESSION['message'] = "The two passwords do not match";
     }
@@ -100,9 +103,22 @@ if (isset($_POST['button'])) {
                     </a>
                     
                 </li>
-                    <li id="signin">
-                        <a href="login.php">SIGN IN</a>
-                    </li>
+                <?php
+                    if(isset($_SESSION['user'])){
+                        $user = $_SESSION['user'];
+                        echo "
+                        <li id=\"signin\">
+                            <a href=\"nav_2.php\">$user</a>
+                        </li>
+                        ";
+                    }else{
+                        echo "
+                        <li id=\"signin\">
+                            <a href=\"login.php\">SIGN IN</a>
+                        </li>
+                        ";
+                    }
+                ?>
                 </ul>
             </div>
         </div>
@@ -113,7 +129,7 @@ if (isset($_POST['button'])) {
             <div class="container">
                 <h1>Sign Up:</h1>
                 <div class="forma">
-                    <form action="login.php" method="POST">
+                    <form action="signup.php" method="POST">
                         <div class="first">
                             <label for="name">Enter your name:</label><br>
                             <input type="text" id="name" name="name" placeholder="Name" class="contact-form-field">

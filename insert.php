@@ -1,4 +1,18 @@
 <?php
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+}
+if(!isset($_SESSION['user'])){
+    echo "<script>alert('You dont have permission to enter..!')</script>";
+    echo "<script>window.location = 'home.php'</script>";
+}else if(isset($_SESSION['isAdmin'])){
+    $admin = $_SESSION['isAdmin'];
+    if($admin != 1){
+       echo "<script>alert('You are not an admin..!')</script>";
+       echo "<script>window.location = 'home.php'</script>";
+    }
+}
 include_once 'dbconnection.php';
 $obj = new Connection();
 $conn = $obj->getConnection();
@@ -10,5 +24,5 @@ $sql1 = "INSERT INTO contactform(Name, Email, Message) VALUES('$Name', '$Email',
 if(!mysqli_query($conn, $sql1)){
     echo'not insered';
 }
-header("Location:http://localhost:8012/ProjektiWebEng/contact.php");
+header("Location:http://localhost/ProjektiWebEng/contact.php");
 ?>

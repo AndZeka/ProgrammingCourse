@@ -1,6 +1,9 @@
 
 <?php
-session_start();
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+}
 
 require_once ('component.php');
 require_once ('dbconnection.php');
@@ -91,9 +94,23 @@ if(isset($_POST['add'])){
                     </a>
                     
                 </li>
-            <li id="signin">
-                <a href="login.php">SIGN IN</a>
-            </li>
+            <?php
+                if(isset($_SESSION['user'])){
+                    $user = $_SESSION['user'];
+                    echo "
+                    <li id=\"signin\">
+                        <a href=\"nav_2.php\">$user </a>
+                    </li>
+                    ";
+                }else{
+                    echo "
+                    <li id=\"signin\">
+                        <a href=\"login.php\">SIGN IN</a>
+                    </li>
+                    ";
+                }
+            ?>
+            
         </ul>
     </div>
     <div class="slider">
@@ -137,50 +154,6 @@ if(isset($_POST['add'])){
 
 
 <div class="homeCourseContent wrapper">
-    <!-- <div class="courseItem block noPadding" >
-        <a >
-            <img src="imgs/1073.png" alt="Python 3 Course" class="courseIcon">
-            <div class="courseDescription">
-                <div>Python 3 Tutorial</div>
-                <p>
-                    Learn Python for free with this interactive course, and get a handle on the most popular programming language in the world.
-                </p>
-            </div>
-        </a>
-        <div class="courseStores">
-            <button type="submit" name="add">Add to cart   <i class="fas fa-shopping-cart"></i></button>
-        </div>
-    </div>
-    <div class="courseItem block noPadding">
-        <a >
-            <img src="imgs/1051.png" alt="C++ Course" class="courseIcon">
-            <div class="courseDescription">
-                <div>C++ Tutorial</div>
-                <p>
-                    Learn C++ in a greatly improved learning environment with more lessons, real practice opportunity, and community support and become a rockstar developer.
-                </p>
-            </div>
-        </a>
-        <div class="courseStores">
-        <button type="submit" name="add">Add to cart   <i class="fas fa-shopping-cart"></i></button>
-        </div>
-    </div>
-    <div class="courseItem block noPadding" >
-        <a >
-            <img src="imgs/1068.png" alt="Java Course" class="courseIcon">
-            <div class="courseDescription">
-                <div>Java Tutorial</div>
-                <p>
-                    Utilize our Java tutorial to learn the basics of the popular language, including Java objects, in this introductory course and explore a career as a software engineer.
-                </p>
-            </div>
-        </a>
-        <div class="courseStores">
-            <button type="submit" name="add">Add to cart   <i class="fas fa-shopping-cart"></i></button>        
-        </div> 
-        
-    </div> -->
-
     <?php
         $result = $database->getConditionData();
         while ($row = mysqli_fetch_assoc($result)){

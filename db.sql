@@ -41,15 +41,7 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`ID`, `Name`, `Description`, `Image`, `User_id`, `Titulli2`) VALUES
-(38, 'test', 'test', 'imgs/Spain-1000x400.jpg', 10, 'test'),
-(451, 'rasda', 'asdad', 'imgs/Spain-1000x400.jpg', 10, 'asdasd'),
-(452, 'rasda', 'asdad', 'imgs/Spain-1000x400.jpg', 10, 'asdasd'),
-(453, 'rasda', 'asdad', 'imgs/Spain-1000x400.jpg', 10, 'asdasd'),
-(456, 'rasda', 'asdad', 'imgs/Spain-1000x400.jpg', 10, 'asdasd'),
-(458, 'rasda', 'ete', 'imgs/Spain-1000x400.jpg', 10, 'asdasd'),
-(459, 'tes', 'test', 'imgs/Spain-1000x400.jpg', 10, 'test'),
-(461, 'RIIIIIIIIIIINA', 'asdad', 'imgs/Spain-1000x400.jpg', 38, 'asdasd'),
-(462, 'r', 'r', 'imgs/Spain-1000x400.jpg', 10, 'r');
+(1, 'Spain', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum accusantium modi aperiam! Repellendus nesciunt blanditiis dolorem? Architecto libero sit, voluptatibus quod, commodi totam iste cumque, quaerat exercitationem ullam ipsam. Maxime.', 'imgs/Spain-1000x400.jpg', 1, 'Spain');
 
 -- --------------------------------------------------------
 
@@ -68,21 +60,8 @@ CREATE TABLE `contactform` (
 --
 
 INSERT INTO `contactform` (`Name`, `Email`, `Message`) VALUES
-('Rina', 'eefeffe', 'dfdsfdf'),
-('Rina', 'eefeffe', 'dfdsfdf'),
-('RIIIIIIIIIIINA', 'rk49067@ubt-uni.net', 'werwre'),
-('rasda', 'rk49067@ubt-uni.net', 'ad'),
-('RIIIIIIIIIIINA', 'rinakasabaqi7@gmail.com', 'sadsadad'),
-('ffff', 'dfdf@gmail.com', 'd'),
-('RIIIIIIIIIIINA', 'sd@asdada', 'sdf'),
-('RIIIIIIIIIIINA', 'rk49067@ubt-uni.net', 'sdfsdfsdf'),
-('RIIIIIIIIIIINA', 'rinakasabaqi7@gmail.com', 'sfsdf'),
-('test', 'rinakasabaqi@gmail.com', 'test'),
-('a', 'rk49067@ubt-uni.net', 'a'),
-('rasda', 'rinakasabaqi7@gmail.com', 'asdasdad'),
-('rasda', 'rinakasabaqi7@gmail.com', 'asdasdad'),
-('RIIIIIIIIIIINA', 'rinakasabaqi7@gmail.com', 'adadada'),
-('RIIIIIIIIIIINA', 'rinakasabaqi7@gmail.com', 'asdsadasd');
+('Andi', 'andizeka@hotmail.com', 'Contact form test');
+
 
 -- --------------------------------------------------------
 
@@ -139,22 +118,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `Name`, `Email`, `Password`, `isAdmin`) VALUES
-(10, 'RIIIIIIIIIIINA', 'a@kdffdsf', 'sasf2', 1),
-(26, 'asd', 'rinakasabaqi7@gmail.com', 'asd', 0),
-(27, 'asd', 'rina@bla.com', 'ad', 1),
-(38, 'asd', 'rinakasabaqi7@gmail.com', 'asdss', 1),
-(44, 'ffff', 'rinakasabaqi7@gmail.com', 'ffff', 0),
-(45, 'sd', 'sd@asdada', 'sd', 0),
-(48, 'rasda', 'rinakasabaqi7@gmail.com', 'hnhjh', 1),
-(50, 'rasda', 'rinakasabaqi7@gmail.com', '1', 1),
-(55, 'rasda', 'rinakasabaqi7@gmail.com', '12', 0),
-(56, 'RIIIIIIIIIIINA', 'rinakasabaqi7@gmail.com', 'aa', 0),
-(57, 'RIIIIIIIIIIINA', 'rinakasabaqi7@gmail.com', '12', 0),
-(58, 'RIIIIIIIIIIINA', 'rinakasabaqi7@gmail.com', 'aa', 0),
-(59, 'RIIIIIIIIIIINA', 'rinakasabaqi7@gmail.com', 'Rkasabaqi1.', 0),
-(60, 'RIIIIIIIIIIINA', 'rinakasabaqi7@gmail.com', 'rinaK123', 0),
-(61, 'Rina', 'rinakasabaqi7@gmail.com', 'Rkasabaqi1', 0),
-(62, 'Rina', 'rinakasabaqi7@gmail.com', 'Rkasabaqi1', 0);
+(1, 'And', 'andizeka@hotmail.com', 'Test123#@!', 1);
 
 --
 -- Indexes for dumped tables

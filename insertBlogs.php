@@ -1,4 +1,18 @@
 <?php
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+}
+if(!isset($_SESSION['user'])){
+    echo "<script>alert('You dont have permission to enter..!')</script>";
+    echo "<script>window.location = 'home.php'</script>";
+}else if(isset($_SESSION['isAdmin'])){
+    $admin = $_SESSION['isAdmin'];
+    if($admin != 1){
+       echo "<script>alert('You are not an admin..!')</script>";
+       echo "<script>window.location = 'home.php'</script>";
+    }
+}
 include_once 'dbconnection.php';
 
 $obj = new Connection();
@@ -13,7 +27,7 @@ $sql1 = "INSERT INTO blogs(Name, Titulli2, Description, Image, User_id) VALUES('
 if(!mysqli_query($connection, $sql1)){
     echo'not insered';
 }
-header("Location:http://localhost:8012/ProjektiWebEng/admin_blogs.php");
+header("Location:http://localhost/ProjektiWebEng/admin_blogs.php");
 
 
 ?>
