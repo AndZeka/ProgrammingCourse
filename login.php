@@ -27,7 +27,7 @@
 
             $_SESSION['user'] = $email;
 
-            header("Location:http://localhost/ProjektiWebEng/index.php");
+            header("Location:https://programming-course.herokuapp.com/index.php");
         }else{
             echo "<script>alert('Invalid Email address or Password!')</script>";
         }

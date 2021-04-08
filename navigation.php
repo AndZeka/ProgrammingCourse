@@ -14,7 +14,7 @@
     if(isset($_POST['button'])){
         session_unset();
         session_destroy();
-        header("Location:http://localhost/ProjektiWebEng/index.php");
+        header("Location:https://programming-course.herokuapp.com/index.php");
     }
 ?>
 <!DOCTYPE html>

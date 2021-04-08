@@ -12,10 +12,18 @@
     $database->getConnection();
 ?>
 <?php
-$serverName = "localhost";
-$user = "root";
-$password = "";
-$databaseName = "db";
+
+// Development connection
+// $serverName = "localhost";
+// $user = "root";
+// $password = "";
+// $databaseName = "db";
+
+// Remote connection
+$serverName = "remotemysql.com";
+$user = "Zd2wzwQftL";
+$password = "fEFJKna0xw";
+$databaseName = "Zd2wzwQftL";
 
 try {
     $conn = new PDO(
@@ -49,7 +57,7 @@ if (isset($_POST['button'])) {
 
         $_SESSION['message'] = "You are logged in";
         $_SESSION['name'] = $name;
-        header("Location:http://localhost/ProjektiWebEng/login.php");
+        header("Location:https://programming-course.herokuapp.com/login.php");
     } else {
         $_SESSION['message'] = "The two passwords do not match";
     }

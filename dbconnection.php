@@ -2,10 +2,20 @@
 class Connection
 {
     public function getConnection(){
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $db='db';
+        // Development conncetion
+
+        // $servername = 'localhost';
+        // $username = 'root';
+        // $password = '';
+        // $db='db';
+
+        // Remote connection
+        $servername = 'remotemysql.com';
+        $username = 'Zd2wzwQftL';
+        $password = 'fEFJKna0xw';
+        $db='Zd2wzwQftL';
+
+
         $conn=mysqli_connect($servername, $username, $password, $db);
         if(!$conn){
         die("Connection failed" . mysqli_connect_error());}

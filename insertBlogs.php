@@ -27,7 +27,7 @@ $sql1 = "INSERT INTO blogs(Name, Titulli2, Description, Image, User_id) VALUES('
 if(!mysqli_query($connection, $sql1)){
     echo'not insered';
 }
-header("Location:http://localhost/ProjektiWebEng/admin_blogs.php");
+header("Location:https://programming-course.herokuapp.com/admin_blogs.php");
 
 
 ?>
