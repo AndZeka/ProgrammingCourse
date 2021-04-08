@@ -57,7 +57,8 @@ if (isset($_POST['button'])) {
 
         $_SESSION['message'] = "You are logged in";
         $_SESSION['name'] = $name;
-        header("Location:https://programming-course.herokuapp.com/login.php");
+        echo "<script>window.location = 'login.php'</script>";
+        // header("Location:https://programming-course.herokuapp.com/login.php");
     } else {
         $_SESSION['message'] = "The two passwords do not match";
     }

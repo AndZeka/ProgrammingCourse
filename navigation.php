@@ -14,7 +14,8 @@
     if(isset($_POST['button'])){
         session_unset();
         session_destroy();
-        header("Location:https://programming-course.herokuapp.com/index.php");
+        echo "<script>window.location = 'index.php'</script>";
+        // header("Location:https://programming-course.herokuapp.com/index.php");
     }
 ?>
 <!DOCTYPE html>

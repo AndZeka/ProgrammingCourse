@@ -24,5 +24,6 @@ $sql1 = "INSERT INTO contactform(Name, Email, Message) VALUES('$Name', '$Email',
 if(!mysqli_query($conn, $sql1)){
     echo'not insered';
 }
-header("Location:https://programming-course.herokuapp.com/contact.php");
+echo "<script>window.location = 'contact.php'</script>";
+// header("Location:https://programming-course.herokuapp.com/contact.php");
 ?>
