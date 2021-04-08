@@ -5,12 +5,12 @@ if(!isset($_SESSION))
 }
 if(!isset($_SESSION['user'])){
     echo "<script>alert('You dont have permission to enter..!')</script>";
-    echo "<script>window.location = 'home.php'</script>";
+    echo "<script>window.location = 'index.php'</script>";
 }else if(isset($_SESSION['isAdmin'])){
     $admin = $_SESSION['isAdmin'];
     if($admin != 1){
        echo "<script>alert('You are not an admin..!')</script>";
-       echo "<script>window.location = 'home.php'</script>";
+       echo "<script>window.location = 'index.php'</script>";
     }
 }
 include_once 'dbconnection.php';

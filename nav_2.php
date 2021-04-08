@@ -5,7 +5,7 @@ if(!isset($_SESSION))
 }
 if(!isset($_SESSION['user'])){
     echo "<script>alert('You dont have permission to enter..!')</script>";
-    echo "<script>window.location = 'home.php'</script>";
+    echo "<script>window.location = 'index.php'</script>";
 }
 include_once "navigation.php";
 ?>

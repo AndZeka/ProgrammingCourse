@@ -27,7 +27,7 @@
 
             $_SESSION['user'] = $email;
 
-            header("Location:http://localhost/ProjektiWebEng/home.php");
+            header("Location:http://localhost/ProjektiWebEng/index.php");
         }else{
             echo "<script>alert('Invalid Email address or Password!')</script>";
         }
@@ -48,14 +48,14 @@
     <div id="header">
         <div class="header wrapper">
             <div class="logo">
-                <a href="home.php">
+                <a href="index.php">
                     <img src="imgs/pgcourse.png" alt="">
                 </a>
             </div>
             <div class="navigation-menu">
                 <ul class="Dynamic Contact">
                     <li id="HomeNav">
-                        <a href="home.php">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li id="CoursesNav">
                         <a href="courses.php">Courses</a>
@@ -145,7 +145,7 @@
             <div class="footerMenu Home">
                 <ul>
                     <li>
-                        <a href="home.php" id="footerHome">Home</a>
+                        <a href="index.php" id="footerHome">Home</a>
                     </li>
                     <li>
                         <a href="#">Features</a>

@@ -38,11 +38,12 @@ if (isset($_POST['button'])) {
 
     if ($password == $password1) {
         $password = ($password);
+        $hashedpw = password_hash($password, PASSWORD_DEFAULT);
 
         $query = $conn->prepare("INSERT INTO user(Name, Email,Password) VALUES(:name,:email,:password)");
         $query->bindparam(":name", $_POST['name']);
         $query->bindparam(":email", $_POST['email']);
-        $query->bindparam(":password", $password);
+        $query->bindparam(":password", $hashedpw);
 
         $query->execute();
 
@@ -70,14 +71,14 @@ if (isset($_POST['button'])) {
     <div id="header">
         <div class="header wrapper">
             <div class="logo">
-                <a href="home.php">
+                <a href="index.php">
                     <img src="imgs/pgcourse.png" alt="">
                 </a>
             </div>
             <div class="navigation-menu">
                 <ul class="Dynamic Contact">
                     <li id="HomeNav">
-                        <a href="home.php">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li id="CoursesNav">
                         <a href="courses.php">Courses</a>
@@ -186,7 +187,7 @@ if (isset($_POST['button'])) {
             <div class="footerMenu Home">
                 <ul>
                     <li>
-                        <a href="home.php" id="footerHome">Home</a>
+                        <a href="index.php" id="footerHome">Home</a>
                     </li>
                     <li>
                         <a href="#">Features</a>

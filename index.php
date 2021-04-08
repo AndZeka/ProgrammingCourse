@@ -23,7 +23,7 @@ if(isset($_POST['add'])){
 
         if(in_array($_POST['productid'],$item_array_id)){
             echo "<script>alert('Course is already added in the cart..!')</script>";
-            echo "<script>window.location = 'home.php'</script>";
+            echo "<script>window.location = 'index.php'</script>";
         }else{
             $count = count($_SESSION['cart']);
             $item_array=array(
@@ -65,7 +65,7 @@ if(isset($_POST['add'])){
     <div class="navigation-menu">
         <ul class="Home">
             <li id="HomeNav">
-                <a href="home.php">Home</a>
+                <a href="index.php">Home</a>
             </li>
             <li id="CoursesNav">
                 <a href="courses.php">Courses</a>
@@ -310,7 +310,7 @@ if(isset($_POST['add'])){
     <div class="footerMenu Home">
         <ul>
             <li>
-                <a href="home.php" id="footerHome">Home</a>
+                <a href="index.php" id="footerHome">Home</a>
             </li>
             <li>
                 <a href="courses.php" id="footerCourses">Courses</a>

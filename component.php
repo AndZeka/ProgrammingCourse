@@ -69,7 +69,7 @@ function cartElement($courseimg,$coursename,$coursedescription,$courseprice,$cou
 
 function mainElements($productname,$productimg,$productdescription,$productid){
     $element= "
-    <form action=\"home.php\" method=\"POST\">
+    <form action=\"index.php\" method=\"POST\">
     <div class=\"courseItem block noPadding\" >
         <a >
             <img src=\"$productimg\" alt=\"Python 3 Course\" class=\"courseIcon\">
@@ -91,23 +91,30 @@ function mainElements($productname,$productimg,$productdescription,$productid){
 }
 
 
-$_SESSION["bool"]=false;
 function login(){  
     if(isset($_POST['button'])){
         $uname=$_POST['email'];
         $password=$_POST['password'];
 
-        $sql="Select * from user where Email= '$uname' AND Password='$password' ";
+        $sql="Select * from user where Email= '$uname'";
 
         require_once ('dbconnection.php');
         $database = new Connection();
 
         $result=mysqli_query($database->getConnection(),$sql);
-        $rows=mysqli_fetch_array($result);
-        if($rows){
-            $_SESSION["bool"]=TRUE;
+        $numRows = mysqli_num_rows($result);
+
+        if($numRows  == 1){
+            $row = mysqli_fetch_assoc($result);
+            if(password_verify($password,$row['Password'])){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }else{
+            return false;
         }
-        return $_SESSION["bool"];
     }
 }
 

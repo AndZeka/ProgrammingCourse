@@ -5,7 +5,7 @@
     }
     if(!isset($_SESSION['user'])){
         echo "<script>alert('You dont have permission to enter..!')</script>";
-        echo "<script>window.location = 'home.php'</script>";
+        echo "<script>window.location = 'index.php'</script>";
     }
     if(!isset($_SESSION)) 
     { 
@@ -14,7 +14,7 @@
     if(isset($_POST['button'])){
         session_unset();
         session_destroy();
-        header("Location:http://localhost/ProjektiWebEng/home.php");
+        header("Location:http://localhost/ProjektiWebEng/index.php");
     }
 ?>
 <!DOCTYPE html>
@@ -40,7 +40,7 @@
        <a href="nav_2.php"> <img src="./imgs/logo.png" alt="logo"></a>
         <ul>
             <li>
-                <a href="home.php">
+                <a href="index.php">
                     <img src="./imgs/home.png" style="width:40px; padding:0 50px; margin: 16px 0;" alt="user-icon"> 
                 </a>
             </li>

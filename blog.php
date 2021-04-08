@@ -41,7 +41,7 @@ $result = mysqli_query($connection, $sql);
             <div class="navigation-menu">
                 <ul class="Dynamic Contact">
                     <li id="HomeNav">
-                        <a href="home.php">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li id="CoursesNav">
                         <a href="courses.php">Courses</a>
@@ -164,7 +164,7 @@ $result = mysqli_query($connection, $sql);
         <div class="footerMenu Home">
             <ul>
                 <li>
-                    <a href="home.php" id="footerHome">Home</a>
+                    <a href="index.php" id="footerHome">Home</a>
                 </li>
                 <li>
                     <a href="courses.php" id="footerCourses">Courses</a>
