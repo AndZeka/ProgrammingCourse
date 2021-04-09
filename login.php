@@ -17,11 +17,19 @@
     require_once ('component.php');
     if(isset($_POST['button'])){
         if(login()){
+            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             $email = $_POST['email'];    
-            $sql="select * from User WHERE email like '$email'";
+            $sql="select * from user WHERE email like '$email'";
             $connection = $database->getConnection();
             $result = mysqli_query($connection, $sql);
-            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+            if (!$result) {
+                die('Invalid query: ' . mysqli_error($result));
+            }
+
+            $row = mysqli_fetch_array($result);
+
+
 
             $_SESSION['isAdmin'] = $row['isAdmin'];
 
