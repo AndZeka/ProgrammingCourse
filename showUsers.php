@@ -21,7 +21,7 @@ class showUsers{
             
         $obj = new Connection();
         $connection = $obj->getConnection();
-        $sql='select * from User';
+        $sql='select * from user';
         $result = mysqli_query($connection, $sql);
         if(!$result){
              die("Connection failed" . mysqli_error($connection)); }
