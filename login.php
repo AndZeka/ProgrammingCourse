@@ -21,7 +21,7 @@
             $sql="select * from User WHERE email like '$email'";
             $connection = $database->getConnection();
             $result = mysqli_query($connection, $sql);
-            $row = mysqli_fetch_array($result);
+            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
             $_SESSION['isAdmin'] = $row['isAdmin'];
 
