@@ -24,6 +24,7 @@ include_once "navigation.php";
                 font-family: sans-serif;
             }
         </style>
+        <link rel='icon' href='imgs/favicon.png' type='image/x-icon'>
     </head>
     <body>
         <h1><strong>Welcome</strong></h1>
