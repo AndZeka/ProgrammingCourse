@@ -20,10 +20,10 @@
 // $databaseName = "db";
 
 // Remote connection
-$servername = 'sql11.freemysqlhosting.net';
-$username = 'sql11479413';
-$password = 'RlaSIEAPzx';
-$db='sql11479413';
+$serverName = "sql11.freemysqlhosting.net";
+$user = "sql11479413";
+$password = "RlaSIEAPzx";
+$databaseName = "sql11479413";
 
 try {
     $conn = new PDO(
