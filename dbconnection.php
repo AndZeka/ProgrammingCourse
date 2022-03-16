@@ -10,10 +10,10 @@ class Connection
         // $db='db';
 
         // Remote connection
-        $servername = 'remotemysql.com';
-        $username = 'Zd2wzwQftL';
-        $password = 'fEFJKna0xw';
-        $db='Zd2wzwQftL';
+        $servername = 'sql11.freemysqlhosting.net';
+        $username = 'sql11479413';
+        $password = 'RlaSIEAPzx';
+        $db='sql11479413';
 
 
         $conn=mysqli_connect($servername, $username, $password, $db);
